@@ -27,8 +27,9 @@ $(document).ready(function() {
 		// Loops through the animal array
 		for (var i = 0; i < animals.length; i++) {
 
-			// Creates a button and gives it the text and value that the user input
-			var animalBtn = $("<button>").text(animals[i]).attr("value", animals[i]);
+			// Creates a button and gives it the text and value of the user input,
+			// as well as a class of "myBtn"
+			var animalBtn = $("<button>").text(animals[i]).attr("value", animals[i]).attr("class", "myBtn");
 
 			// Puts the new button into the button div in the DOM
 			$("#buttonDiv").append(animalBtn);
