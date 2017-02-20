@@ -6,8 +6,7 @@ $(document).ready(function() {
 	// Creates buttons for the given animals in the animals array
 	createButton();
 
-    // var animalDiv = $("<div>");
-
+	// When a "myBtn" button is clicked, this function runs...
     $(".myBtn").on("click", function() {
 
 		// Selects the value from the button being clicked
@@ -15,6 +14,7 @@ $(document).ready(function() {
 	    // Inserts animal name into the API URL to be searched
 	    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 		
+		// Empties the gif div of previous gifs 
 		$("#gifDiv").empty();
 
 	    // AJAX call for the specific animal button being clicked
@@ -23,16 +23,17 @@ $(document).ready(function() {
 	      method: "GET"
 	    }).done(function(response) {
 
+	    	// Putting the API response in a variable
 	    	var results = response.data;
 
+	    	// Loops through the 10 gifs called for
         	for (var i = 0; i < results.length; i++) {
 
-		    	var src = results[i].images.fixed_height.url;
-
+        		// Puts the animate and still gif urls in variables
 		    	var animateURL = results[i].images.fixed_height.url;
-
 		    	var stillURL = results[i].images.fixed_height_still.url;
 
+		    	// Creates img tag and assigns urls to different attributes in that tag
 		    	var gif = $("<img>").attr({
 		    		src: stillURL,
 		    		animate: animateURL,
@@ -41,6 +42,7 @@ $(document).ready(function() {
 		    		alt: animal
 		    	});
 
+		    	// Makes the 10 gifs visible in the DOM
 		    	$("#gifDiv").append(gif);
 
 		    }
