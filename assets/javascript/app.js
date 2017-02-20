@@ -8,15 +8,43 @@ $(document).ready(function() {
 
     // var animalDiv = $("<div>");
 
-    // // AJAX call for the specific animal button being clicked
-    // $.ajax({
-    //   url: queryURL,
-    //   method: "GET"
-    // }).done(function(response) {
+    $(".myBtn").on("click", function() {
 
+		// Selects the value from the button being clicked
+	    var animal = $(this).attr("value");
+	    // Inserts animal name into the API URL to be searched
+	    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 
+	    // AJAX call for the specific animal button being clicked
+	    $.ajax({
+	      url: queryURL,
+	      method: "GET"
+	    }).done(function(response) {
 
-    // }),
+	    	var results = response.data;
+
+        	for (var i = 0; i < results.length; i++) {
+
+		    	var src = results[i].images.fixed_height.url;
+
+		    	var animateURL = results[i].images.fixed_height.url;
+
+		    	var stillURL = results[i].images.fixed_height_still.url;
+
+		    	var gif = $("<img>").attr({
+		    		src: stillURL,
+		    		animate: animateURL,
+		    		still: stillURL,
+		    		state: "still",
+		    		alt: animal
+
+		    	$("#gifDiv").append(gif);
+		    	
+		    	});
+		    }
+
+	    });
+	});
 
     // Function to create buttons!
 	function createButton () {
@@ -40,10 +68,10 @@ $(document).ready(function() {
 	$("#addAnimal").on("click", function(event){
 
 		// This variable grabs the animal typed in by user
-		var animal = $("#animalInput").val().trim();
+		var animalInput = $("#animalInput").val().trim();
 
 		// Adds animal input into the animals array
-        animals.push(animal);
+        animals.push(animalInput);
         console.log(animals);
 
         // Runs create button function again to add new animals
