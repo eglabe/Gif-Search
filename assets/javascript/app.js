@@ -14,6 +14,8 @@ $(document).ready(function() {
 	    var animal = $(this).attr("value");
 	    // Inserts animal name into the API URL to be searched
 	    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+		
+		$("#gifDiv").empty();
 
 	    // AJAX call for the specific animal button being clicked
 	    $.ajax({
@@ -37,10 +39,10 @@ $(document).ready(function() {
 		    		still: stillURL,
 		    		state: "still",
 		    		alt: animal
+		    	});
 
 		    	$("#gifDiv").append(gif);
-		    	
-		    	});
+
 		    }
 
 	    });
