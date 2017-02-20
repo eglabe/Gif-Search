@@ -1,4 +1,4 @@
-// Function to wait to run code until page is ready
+// Function to wait to run code until the page is ready
 $(document).ready(function() {
 
 	// Array holding all of the animals
@@ -7,7 +7,7 @@ $(document).ready(function() {
 	createButton();
 
 	// When a "myBtn" button is clicked, this function runs...
-    $(".myBtn").on("click", function() {
+    $("#buttonDiv").on("click", ".myBtn", function() {
 
 		// Selects the value from the button being clicked
 	    var animal = $(this).attr("value");
@@ -26,7 +26,7 @@ $(document).ready(function() {
 	    	// Putting the API response in a variable
 	    	var results = response.data;
 
-	    	// Loops through the 10 gifs called for
+	    	// Loops through the number of gifs called for
         	for (var i = 0; i < results.length; i++) {
 
         		// Puts the animate and still gif urls in variables
@@ -35,6 +35,7 @@ $(document).ready(function() {
 
 		    	// Creates img tag and assigns urls to different attributes in that tag
 		    	var gif = $("<img>").attr({
+		    		class: "gif",
 		    		src: stillURL,
 		    		animate: animateURL,
 		    		still: stillURL,
@@ -42,13 +43,14 @@ $(document).ready(function() {
 		    		alt: animal
 		    	});
 
-		    	// Makes the 10 gifs visible in the DOM
+		    	// Makes the gif visible in the DOM
 		    	$("#gifDiv").append(gif);
 
 		    }
 
 	    });
 	});
+
 
     // Function to create buttons!
 	function createButton () {
@@ -61,12 +63,13 @@ $(document).ready(function() {
 
 			// Creates a button and gives it the text and value of the user input,
 			// as well as a class of "myBtn"
-			var animalBtn = $("<button>").text(animals[i]).attr("value", animals[i]).attr("class", "myBtn");
+			var animalBtn = $("<button>").text(animals[i]).attr({value: animals[i], class: "myBtn"});
 
 			// Puts the new button into the button div in the DOM
 			$("#buttonDiv").append(animalBtn);
 		}
 	}
+
 
 	// When user clicks "Add Animal" button, this code runs
 	$("#addAnimal").on("click", function(event){
@@ -82,6 +85,21 @@ $(document).ready(function() {
         createButton();
 
 	});
+
+
+    $("#gifDiv").on("click", ".gif", function() {
+
+    	var state = $(this).attr("state");
+
+	    if (state == "still") {
+	        $(this).attr("src", $(this).attr("animate"));
+	        $(this).attr("state", "animate");
+	    } else {
+	        $(this).attr("src", $(this).attr("still"));
+	        $(this).attr("state", "still");
+	    }
+
+    });
 
 });
 
