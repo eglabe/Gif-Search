@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 	// Array holding all of the animals
-	var animals = ["hedgehog", "capybara", "koala"];
+	var animals = ["Hedgehog", "Capybara", "Koala", "Duckling"];
 	// Creates buttons for the given animals in the animals array
 	createButton();
 
@@ -32,6 +32,7 @@ $(document).ready(function() {
         		// Puts the animate and still gif urls in variables
 		    	var animateURL = results[i].images.fixed_height.url;
 		    	var stillURL = results[i].images.fixed_height_still.url;
+		    	var rating = $("<p>").append("Rating: " + results[i].rating);
 
 		    	// Creates img tag and assigns urls to different attributes in that tag
 		    	var gif = $("<img>").attr({
@@ -43,8 +44,12 @@ $(document).ready(function() {
 		    		alt: animal
 		    	});
 
+		    	// var html = '<div class="gif-div"><img src='+results[i].images.fixed_height_still.url+' class="gif-image" /><p>Rating: ' + results[i].rating + '</p></div>'
+
+		    	var gifHolder = $("<div>").attr("class", "gifHolder");
 		    	// Makes the gif visible in the DOM
-		    	$("#gifDiv").append(gif);
+		    	gifHolder.append(gif).append(rating);
+		    	$("#gifDiv").append(gifHolder);
 
 		    }
 
