@@ -1,17 +1,23 @@
 body {
 	font-family: 'Source Sans Pro', sans-serif;
+	background: url(../images/rainbow.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-color: black;
 }
 
 header {
 	font-family: 'Bowlby One', cursive;	
 	font-size: 60px;
 	text-align: center;
+	color: white;
 }
 
 
 /*Buttons*/
 .myBtn {
-	background-color: coral;
+	background-color: cornflowerblue;
 	color: white;
 	border: none;
 	margin: 0 5px 5px 0;
@@ -35,8 +41,12 @@ header {
 	margin-bottom: 20px;
 }
 
+#instruct {
+	color: white;
+}
+
 label {
-	color: cornflowerblue;
+	color: white;
 	text-align: center;
 }
 
@@ -54,7 +64,7 @@ label {
 }
 
 .rating {
-	color: coral;
+	color: white;
 }
 
 
