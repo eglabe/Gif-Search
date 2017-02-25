@@ -12,7 +12,7 @@ $(document).ready(function() {
 		// Selects the value from the button being clicked
 	    var animal = $(this).attr("value");
 	    // Inserts animal name into the API URL to be searched
-	    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+	    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 		
 		// Empties the gif div of previous gifs 
 		$("#gifDiv").empty();
