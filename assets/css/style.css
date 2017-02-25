@@ -1,0 +1,60 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+	font-family: 'Bowlby One', cursive;	
+	font-size: 60px;
+	text-align: center;
+}
+
+
+/*Buttons*/
+.myBtn {
+	background-color: coral;
+	color: white;
+	border: none;
+	margin: 0 5px 5px 0;
+}
+
+#addAnimal {
+	background-color: cornflowerblue;
+	color: white;
+	border: none;
+}
+
+#buttonDiv {
+	margin: 20px;
+}
+
+
+/*Input Section*/
+#inputDiv,
+#instruct {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+label {
+	color: cornflowerblue;
+	text-align: center;
+}
+
+
+/*Gifs*/
+.gifHolder {
+	display: inline-block;
+	margin-right: 5px;
+	text-align: center;
+}
+
+#gifDiv {
+	text-align: center;
+	margin: 0 20px;
+}
+
+.rating {
+	color: coral;
+}
+
+

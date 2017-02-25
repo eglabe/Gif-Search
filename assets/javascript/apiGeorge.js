@@ -76,11 +76,11 @@ $(document).ready(function() {
 
 	function createButton(animalName)
 	{
-			var animalBtn = $("<button>").text(animalName).attr({value: animalName, class: "myBtn"});
+		var animalBtn = $("<button>").text(animalName).attr({value: animalName, class: "myBtn"});
 
-			// Puts the new button into the button div in the DOM
-			$("#buttonDiv").append(animalBtn);
-			animalBtn.on("click", showImages);
+		// Puts the new button into the button div in the DOM
+		$("#buttonDiv").append(animalBtn);
+		animalBtn.on("click", showImages);
 
 	}
 

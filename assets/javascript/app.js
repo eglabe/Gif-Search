@@ -32,7 +32,7 @@ $(document).ready(function() {
         		// Puts the animate and still gif urls in variables
 		    	var animateURL = results[i].images.fixed_height.url;
 		    	var stillURL = results[i].images.fixed_height_still.url;
-		    	var rating = $("<p>").append("Rating: " + results[i].rating);
+		    	var rating = $("<p>").append("Rating: " + results[i].rating).attr("class", "rating");
 
 		    	// Creates img tag and assigns urls to different attributes in that tag
 		    	var gif = $("<img>").attr({
