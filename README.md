@@ -1,2 +1,2 @@
-# Gif-Search
-Week 6 Homework Assignment using the Giphy API
+# Giphy Gif Search
+Discover fun animal gifs using the Giphy API
